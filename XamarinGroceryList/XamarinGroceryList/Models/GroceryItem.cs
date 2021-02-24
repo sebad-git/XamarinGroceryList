@@ -7,22 +7,18 @@ namespace XamarinGroceryList.Models {
 
         #region Properties
         public string Name { get; set; }
-        public bool Ckecked { get; set; }
-
+        
+        public bool Checked { get; set; }
         #endregion
 
         #region Constructor
         public GroceryItem(){}
         public GroceryItem(string _name, bool _ckecked) {
-            this.Name = _name; this.Ckecked = _ckecked;
+            this.Name = _name; this.Checked = _ckecked;
         }
         public GroceryItem(string _name) {
-            this.Name = _name; this.Ckecked = false;
+            this.Name = _name; this.Checked = false;
         }
-        #endregion
-
-        #region Methods
-
         #endregion
     }
 }

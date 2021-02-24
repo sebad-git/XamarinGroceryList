@@ -4,14 +4,15 @@
              x:Class="XamarinGroceryList.Views.GroceryListPage">
     <ContentPage.Content>
         <StackLayout Background="#eeeef0">
-            <ListView x:Name="groceries" ItemsSource="{Binding GroceryItems,Mode = TwoWay }" SelectedItem = "{Binding SelectedItem, Mode = TwoWay }" >
+            <ListView x:Name="groceries"
+                      SelectionMode="None"
+                      ItemsSource="{Binding GroceryItems,Mode = OneWay }" SelectedItem = "{Binding SelectedItem, Mode = TwoWay }" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout VerticalOptions="Start" Orientation="Horizontal">
-                                <CheckBox IsChecked="{Binding Ckecked, Mode = TwoWay }"/>
-                                <Label Text="{Binding Name}" VerticalOptions="Center" LineBreakMode="TailTruncation"/>
-                                <Label Text="Ready" HorizontalOptions="EndAndExpand" IsVisible="{Binding Ckecked}" LineBreakMode="TailTruncation"/>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Name}" VerticalOptions="Center" HorizontalOptions="Start" LineBreakMode="TailTruncation"/>
+                                <CheckBox VerticalOptions="Center" HorizontalOptions="EndAndExpand" IsChecked="{Binding Checked, Mode = TwoWay }" />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

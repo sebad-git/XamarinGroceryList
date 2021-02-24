@@ -9,18 +9,10 @@ namespace XamarinGroceryList.Services {
 
         private Dictionary<AppPages, Page> stack;
 
-        private static INavigationService instance;
-        public static INavigationService Instance { 
-            get {
-                if (instance == null) { instance = new NavigationService(); }
-                return instance;
-            }
-        }
-
         public NavigationService() { stack = new Dictionary<AppPages, Page>(); this.RoutePages(); }
 
         public void RoutePages() {
-            stack.Add(AppPages.Main, new GroceryListPage());
+            stack.Add(AppPages.Main, Application.Current.MainPage);
             stack.Add(AppPages.Add_Item, new AddItemPage());
         }
 

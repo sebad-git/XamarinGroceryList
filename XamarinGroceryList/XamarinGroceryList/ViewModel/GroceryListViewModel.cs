@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 using XamarinGroceryList.Models;
@@ -9,11 +10,13 @@ namespace XamarinGroceryList.ViewModel {
     class GroceryListViewModel : BaseViewModel {
         #region Attributes
         private List<GroceryItem> groceryItems = new List<GroceryItem>();
-        private GroceryItem selectedItem = null;
+        //private GroceryItem selectedItem = null;
         #endregion
 
         #region Properties
         public List<GroceryItem> GroceryItems { get { return groceryItems; } }
+        
+        /*
         public GroceryItem SelectedItem {
             get { return selectedItem; }
             set { selectedItem = value;
@@ -22,14 +25,14 @@ namespace XamarinGroceryList.ViewModel {
                SelectedItem = null;
             }
         }
+        */
         #endregion
 
         #region Constructor
 
         #endregion
         public GroceryListViewModel() {
-            GroceryItems.Add(new GroceryItem("Vegetables"));
-            GroceryItems.Add(new GroceryItem("Fruits"));
+            Task.Run(AddDummyData);
         }
         #region Commands
         public ICommand AddItemCommand {
@@ -39,11 +42,20 @@ namespace XamarinGroceryList.ViewModel {
 
         #region Methods
         public void AddItem(){
-            NavigationService.Instance.Navigate(AppPages.Add_Item);
+            App.NavigationService.Navigate(AppPages.Add_Item);
         }
+        /*
         private void OnItemSelected(){
-            if (this.selectedItem == null) { return; }
-            NavigationService.Instance.Alert("Selected", this.selectedItem.Name, "ok");
+            if (selectedItem == null) { return; }
+        }
+        */
+
+        private void AddDummyData() {
+            GroceryItems.Add(new GroceryItem("Eggs"));
+            GroceryItems.Add(new GroceryItem("Apples"));
+            GroceryItems.Add(new GroceryItem("Milk"));
+            GroceryItems.Add(new GroceryItem("Ice Cream"));
+            GroceryItems.Add(new GroceryItem("Soda"));
         }
         #endregion
     }
