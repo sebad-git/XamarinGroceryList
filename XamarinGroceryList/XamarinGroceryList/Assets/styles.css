@@ -1,0 +1,26 @@
+﻿^contentpage {
+    background-color: #eeeef0;
+}
+
+#listItem {
+    background-color: white;
+}
+
+listview {
+    background-color: white;
+    box-shadow: black 10 10 black;
+}
+
+
+label {
+    color: darkblue;
+}
+
+checkBox {
+    box-shadow: gray 10 10 inset;
+}
+
+button {
+    background-color: #2e849e;
+    border-radius: 15;
+}

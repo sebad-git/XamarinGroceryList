@@ -8,22 +8,17 @@ using XamarinGroceryList.Services;
 namespace XamarinGroceryList.ViewModel {
     class GroceryListViewModel : BaseViewModel {
         #region Attributes
-        private List<GroceryItem> groceryItems = null;
+        private List<GroceryItem> groceryItems = new List<GroceryItem>();
         private GroceryItem selectedItem = null;
         #endregion
 
         #region Properties
-        public List<GroceryItem> GroceryItems { 
-            get { 
-             if (groceryItems == null){ groceryItems = new List<GroceryItem>(); } 
-             return groceryItems; 
-            }
-        }
+        public List<GroceryItem> GroceryItems { get { return groceryItems; } }
         public GroceryItem SelectedItem {
             get { return selectedItem; }
-            set { selectedItem= value;
+            set { selectedItem = value;
             if (selectedItem == null) return;
-               OnItemSelected(); 
+               OnItemSelected();
                SelectedItem = null;
             }
         }
