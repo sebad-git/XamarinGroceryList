@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Xamarin.Forms;
 
-namespace XamarinGroceryList
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
+namespace XamarinGroceryList.Views
 {
-    public partial class MainPage : ContentPage
-    {
-        public MainPage()
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class AddItemPage : ContentPage {
+        public AddItemPage()
         {
             InitializeComponent();
         }

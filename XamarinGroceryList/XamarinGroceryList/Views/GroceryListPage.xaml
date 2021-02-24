@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinGroceryList.Views.GroceryListPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="groceries" ItemsSource="{Binding GroceryItems,Mode = TwoWay }" SelectedItem = "{Binding SelectedItem, Mode = TwoWay }" RowHeight="55">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout VerticalOptions="Start" Orientation="Horizontal">
+                                <CheckBox IsChecked="{Binding Ckecked, Mode = TwoWay }"/>
+                                <Label Text="{Binding Name}" VerticalOptions="Center" LineBreakMode="TailTruncation"/>
+                                <Label Text="Ready" HorizontalOptions="EndAndExpand" IsVisible="{Binding Ckecked}" LineBreakMode="TailTruncation"/>
+                            </StackLayout>
+                            
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="Add Item" Command="{Binding AddItemCommand}"/>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>
