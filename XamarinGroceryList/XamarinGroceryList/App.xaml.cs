@@ -8,17 +8,28 @@ namespace XamarinGroceryList {
     public partial class App : Application {
 
         private static INavigationService navigationService;
-        public static INavigationService NavigationService {
-            get { return navigationService; }
+        private static IDataBaseService database;
+
+        public static INavigationService NavigationService { 
+            get { 
+                if (navigationService == null) {navigationService = new NavigationService(); ; } 
+                return navigationService; 
+            } 
+        }
+
+        public static IDataBaseService DataBase {
+            get {
+                if (database == null) { database = new DataBaseService(); ; }
+                return database;
+            }
         }
 
         public App() {
             InitializeComponent();
             MainPage = new NavigationPage(new GroceryListPage());
-            navigationService = new NavigationService();
         }
 
-        protected override void OnStart() { }
+        protected override void OnStart() {}
 
         protected override void OnSleep() {}
 

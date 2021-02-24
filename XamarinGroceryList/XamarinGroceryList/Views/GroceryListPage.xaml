@@ -18,7 +18,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button Text="Add Item" Command="{Binding AddItemCommand}" Padding="5" Margin="10"/>
+            <Button Text="Save" Command="{Binding SaveCommand}" Padding="5" Margin="10"/>
         </StackLayout>
 
     </ContentPage.Content>

@@ -8,6 +8,7 @@ namespace XamarinGroceryList.Services {
     public class NavigationService : INavigationService {
 
         private Dictionary<AppPages, Page> stack;
+        public Page CurrentPage { get; private set; }
 
         public NavigationService() { stack = new Dictionary<AppPages, Page>(); this.RoutePages(); }
 
@@ -18,6 +19,7 @@ namespace XamarinGroceryList.Services {
 
         public async void Navigate(AppPages nextPage) {
             try {
+                CurrentPage = stack[nextPage];
                 await Application.Current.MainPage.Navigation.PushAsync(stack[nextPage]);
             }
             catch (System.Exception e) {

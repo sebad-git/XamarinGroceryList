@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace XamarinGroceryList.Models {
-    class GroceryItem {
+    public class GroceryItem {
 
         #region Properties
         public string Name { get; set; }

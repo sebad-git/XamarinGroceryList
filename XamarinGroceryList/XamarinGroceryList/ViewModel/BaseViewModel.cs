@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace XamarinGroceryList.ViewModel {
-    class BaseViewModel : INotifyPropertyChanged {
+    public class BaseViewModel : INotifyPropertyChanged {
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -23,7 +23,5 @@ namespace XamarinGroceryList.ViewModel {
         protected virtual void OnPropertyChangeds([CallerMemberName] string propertyName = null) {
             PropertyChangedEventHandler handler = PropertyChanged;
             if (handler != null) { handler(this, new PropertyChangedEventArgs(propertyName)); }
-
         }
-    
  }}
